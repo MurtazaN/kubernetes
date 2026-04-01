@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: mlops
-  name: backend-app-service
+  namespace: k8s-adder
+  name: frontend-app-service
 spec:
   selector:
-    app: backend-app
+    app: frontend-app
   ports:
     - name: http
       port: 80
-      targetPort: 8080
+      targetPort: 80
   type: LoadBalancer

@@ -13,7 +13,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: backend-access-policy
-  namespace: mlops
+  namespace: k8s-adder
 spec:
   podSelector:
     matchLabels:

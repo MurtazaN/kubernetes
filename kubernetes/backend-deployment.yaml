@@ -3,7 +3,7 @@
 # apiVersion: Specifies the API version of the Deployment resource.
 # kind: Indicates that this is a Deployment resource.
 # metadata:
-#   namespace: The namespace in which the Deployment will be created (mlops).
+#   namespace: The namespace in which the Deployment will be created (k8s-adder).
 #   name: The name of the Deployment (backend-app).
 #
 # spec:
@@ -23,16 +23,17 @@
 #             - containerPort: Port exposed by the container (8080).
 #           resources:
 #             requests:
-#               memory: Minimum amount of memory requested by the container ("70Mi").
-#               cpu: Minimum amount of CPU requested by the container ("50m").
+#               memory: Minimum amount of memory (in MiB) requested by the container ("70Mi").
+#               cpu: Minimum amount of CPU (in millicores) requested by the container ("50m").
 #             limits:
-#               memory: Maximum amount of memory the container can use ("128Mi").
-#               cpu: Maximum amount of CPU the container can use ("70m").
+#               memory: Maximum amount of memory (in MiB) the container can use ("128Mi").
+#               cpu: Maximum amount of CPU (in millicores) the container can use ("70m").
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: mlops
+  namespace: k8s-adder
   name: backend-app
+  
 spec:
   replicas: 3
   selector:
@@ -45,7 +46,8 @@ spec:
     spec:
       containers:
           - name: backend-app-container
-            image: raminmohammadi87/networking-backend-app:v6
+            image: murtazar/networking-backend-app:v1 
+            # image: raminmohammadi87/networking-backend-app:v6
             imagePullPolicy: Always
             ports:
               - containerPort: 8080

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: mlops
+  namespace: k8s-adder
   name: frontend-app
 spec:
   replicas: 3
@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
           - name: frontend-app-container
-            image: raminmohammadi87/networking-frontend-app:v7
+            image: murtazar/networking-frontend-app:v1
+            # image: raminmohammadi87/networking-frontend-app:v7
             imagePullPolicy: Always
             ports:
               - containerPort: 80
