@@ -15,9 +15,10 @@ spec:
     spec:
       containers:
           - name: frontend-app-container
-            image: murtazar/networking-frontend-app:v1
+            image: frontend-app:latest
+            imagePullPolicy: IfNotPresent
             # image: raminmohammadi87/networking-frontend-app:v7
-            imagePullPolicy: Always
+            # imagePullPolicy: Always
             ports:
               - containerPort: 80
             resources:

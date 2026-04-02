@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Terraform
+# .terraform/ contains downloaded provider plugins (large binaries, ~100MB+)
+# These are recreated by `terraform init` — never commit them
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+# State files contain your infra's current state (IPs, resource IDs, etc.)
+# Sensitive — never commit. For prod, use remote state (GCS/S3) instead.
+terraform/*.tfstate
+terraform/*.tfstate.backup
+
+# OS
+.DS_Store
+
+# Podman/Docker build artifacts (tar archives from `podman save`)
+*.tar
+
+# IDE
+.idea/
+.vscode/
+*.swp

@@ -46,9 +46,10 @@ spec:
     spec:
       containers:
           - name: backend-app-container
-            image: murtazar/networking-backend-app:v1 
+            image: backend-app:latest
+            imagePullPolicy: IfNotPresent
             # image: raminmohammadi87/networking-backend-app:v6
-            imagePullPolicy: Always
+            # imagePullPolicy: Always
             ports:
               - containerPort: 8080
             resources:
