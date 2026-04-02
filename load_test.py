@@ -1,3 +1,4 @@
+import os
 from locust import HttpUser, TaskSet, task, between
 
 class UserBehavior(TaskSet):
@@ -12,8 +13,7 @@ class UserBehavior(TaskSet):
 class WebsiteUser(HttpUser):
     tasks = [UserBehavior]
     wait_time = between(1, 2)
-    host = "http://104.196.10.15"  # Set this to the correct URL where your FastAPI app is running
+    host = os.environ.get("TARGET_HOST", "http://localhost:8080")  # Override with TARGET_HOST for deployed endpoints
 
 if __name__ == "__main__":
-    import os
     os.system("locust -f locustfile.py")

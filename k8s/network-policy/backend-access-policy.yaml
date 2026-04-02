@@ -3,7 +3,7 @@
 # Key Details:
 # - The policy applies to pods with the label "app: backend-app".
 # - It allows ingress traffic only from pods with the label "app: frontend-app".
-# - The allowed traffic must be on TCP protocol and port 80.
+# - The allowed traffic must be on TCP protocol and port 8080.
 # - The policy ensures that only the specified frontend application can communicate with the backend application.
 # 
 # Usage:
@@ -27,4 +27,4 @@ spec:
               app: frontend-app
       ports:
         - protocol: TCP
-          port: 80
+          port: 8080
